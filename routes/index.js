@@ -58,9 +58,9 @@ router.get('/getVariantsData',async function(req, res,next) {
 })
 
 // API - lati-longti
-router.get('/getGeo', async (req,res,next)=>{
+router.get('/getNumbers', async (req,res,next)=>{
     try{
-        const ret = await query(`SELECT * FROM country_cases WHERE `)
+        const ret = await query(`SELECT * FROM country_cases WHERE country='${req.query.name}'`)
         res.json({
             code: 0,
             data: ret,
